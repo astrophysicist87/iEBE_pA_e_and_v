@@ -365,11 +365,12 @@ def translate_centrality_cut():
                         + nucleus_name_dict[max(Aproj, Atrag)])
 
 
-    if Aproj == 1 or Atrag == 1:
-        shapeOfEntropy = '_SoE' + str(superMCParameters['shape_of_entropy'])
-    else:
-        shapeOfEntropy = ''
+    #if Aproj == 1 or Atrag == 1:
+    #    shapeOfEntropy = '_SoE' + str(superMCParameters['shape_of_entropy'])
+    #else:
+    #    shapeOfEntropy = ''
 
+    shapeOfEntropy  = ''
     shapeOfNucleons = ''
 
     centrality_cut_file_name = (
