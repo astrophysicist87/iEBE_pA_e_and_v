@@ -46,7 +46,7 @@ superMCParameters = {
     'dx'                            :   0.1,        # grid spacing in x (fm)
     'dy'                            :   0.1,        # grid spacing in y (fm)
     'nev'                           :   1,
-    'shape_of_entropy'              :   3,
+    'shape_of_entropy'              :   2,
     #'generate_reaction_plane_avg_profile' : 1,
 }
 
