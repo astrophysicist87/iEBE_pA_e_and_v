@@ -28,13 +28,13 @@ superMCControl = {
 superMCParameters = {
     'model_name'                    :   'MCGlb',    # MCGlb or MCKLN
     'Aproj'                         :   1,
-    'Atarg'                         :   1,
-    'ecm'                           :   7000,
-	'average_from_order'				:	2,
-	'average_to_order'				:	2,
-	'ecc_from_order'				:	2,
-	'ecc_to_order'					:	2,
-    'finalFactor'                   :   81.1114,
+    'Atarg'                         :   197,
+    'ecm'                           :   200,
+    'average_from_order'            :	2,
+    'average_to_order'              :	2,
+    'ecc_from_order'                :	1,
+    'ecc_to_order'                  :	3,
+    'finalFactor'                   :	28.656, 
     'alpha'                         :   0.14,      # WN/BC mixing ratio in MCGlb
     'lambda'                        :   0.288,      # saturation scale parameter in MCKLN
     'operation'                     :   1,
@@ -75,9 +75,9 @@ hydroParameters = {
     'dy'        :   0.10,     # lattice spacing in y (fm)
                               # need to be the same as dy in superMC
     'Edec'      :   0.048,  #
-    'ndx'       :   2,
-    'ndy'       :   2,
-    'ndt'       :   5,
+    'ndx'       :   1,
+    'ndy'       :   1,
+    'ndt'       :   1,
     'IhydroJetoutput' :   0,  # switch for output hydro evolution history
     'InitialURead'    :   0,  # set it to be 1 when simulation_type == hydroEM_preEquilibrium
     'Initialpitensor' :   1,  # initialization of pi tensor
@@ -119,7 +119,7 @@ photonEmissionParameters = {
 }
 
 HoTCoffeehControl = {
-	'runHoTCoffeeh'   :    True,
+    'runHoTCoffeeh'   :    False,
 }
 
 HoTCoffeehParameters = {
