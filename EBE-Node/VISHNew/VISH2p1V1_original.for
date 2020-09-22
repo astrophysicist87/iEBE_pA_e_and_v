@@ -310,7 +310,6 @@ C======output the chemical potential information at freeze out surface.====
       open(2294, File='results/PPI_NS_evo.dat', 
      &     STATUS='REPLACE')
       open(2295, File='results/pi_evo.dat', status='REPLACE')
-      open(2296, File='results/knudsen_and_reynolds_evo.dat', status='REPLACE')
       open(90,File='results/APi.dat',status='REPLACE')
       open(89,File='results/AScource.dat',status='REPLACE')
       open(88,File='results/AScource2.dat',status='REPLACE')
@@ -5358,7 +5357,6 @@ C----------------------------------------------------------------
       Double Precision Pi01(NX0:NX, NY0:NY, NZ0:NZ)    !Stress Tensor
       Double Precision Pi02(NX0:NX, NY0:NY, NZ0:NZ)    !Stress Tensor
       Double Precision Pi33(NX0:NX, NY0:NY, NZ0:NZ)    !Stress Tensor
-
       Double Precision Pi11(NX0:NX, NY0:NY, NZ0:NZ)    !Stress Tensor
       Double Precision Pi12(NX0:NX, NY0:NY, NZ0:NZ)    !Stress Tensor
       Double Precision Pi22(NX0:NX, NY0:NY, NZ0:NZ)    !Stress Tensor
