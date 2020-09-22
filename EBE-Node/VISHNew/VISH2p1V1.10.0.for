@@ -1133,7 +1133,7 @@ CSHEN====END====================================================================
 
       DO J=NYPhy0,NYPhy
       DO I=NXPhy0,NXPhy
-           if(mod(I, 5) .eq. 0 .and. mod(J, 5) .eq. 0) then  
+        !if(mod(I, 5) .eq. 0 .and. mod(J, 5) .eq. 0) then  
         !Set specific shear viscosity
         if(IVisflag.ne.0) then
            ViscousEtaSLocal = ViscousCTemp(Temp(I,J,NZ0))
@@ -3731,6 +3731,7 @@ C-------------------------------------------
 !      End If
 !-------End of regulation---------
 !       ---Zhi-End---
+
 
 ! Ver 1.6.29RC5: NXPhy0->NX0, etc
 
