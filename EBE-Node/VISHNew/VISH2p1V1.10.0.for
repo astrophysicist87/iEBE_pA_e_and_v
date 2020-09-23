@@ -4091,11 +4091,26 @@ C--------------------
         DPc33=0D0
       End If
 
-
+      double precision DPcmn2 = 0.0
+      double precision Pimn2 = 0.0
       DO J=NYPhy0,NYPhy
       DO I=NXPhy0,NXPhy
+        Pimn2 = PI00(I,J,NZ0)*PI00(I,J,NZ0)
+     &         + PI11(I,J,NZ0)*PI11(I,J,NZ0)
+     &         + PI22(I,J,NZ0)*PI22(I,J,NZ0)
+     &         + PI33(I,J,NZ0)*PI33(I,J,NZ0)
+     &         - 2.0*PI01(I,J,NZ0)*PI01(I,J,NZ0)
+     &         - 2.0*PI02(I,J,NZ0)*PI02(I,J,NZ0)
+     &         + 2.0*PI12(I,J,NZ0)*PI12(I,J,NZ0)
+        DPcmn2 = DPc00(I,J,NZ0)*DPc00(I,J,NZ0)
+     &         + DPc11(I,J,NZ0)*DPc11(I,J,NZ0)
+     &         + DPc22(I,J,NZ0)*DPc22(I,J,NZ0)
+     &         + DPc33(I,J,NZ0)*DPc33(I,J,NZ0)
+     &         - 2.0*DPc01(I,J,NZ0)*DPc01(I,J,NZ0)
+     &         - 2.0*DPc02(I,J,NZ0)*DPc02(I,J,NZ0)
+     &         + 2.0*DPc12(I,J,NZ0)*DPc12(I,J,NZ0)
         !Print everything to file
-        write(2297, '(30e15.5)')Time, I*DX, J*DY, 
+        write(2297, '(33e15.5)')Time, I*DX, J*DY, 
      &                  Temp(I,J,NZ0)*Hbarc, 
      &                  Ed(I,J,NZ0)*Hbarc, 
      &                  Bd(I,J,NZ0), 
@@ -4120,7 +4135,12 @@ C--------------------
      &                  DPc11(I,J,NZ0), 
      &                  DPc12(I,J,NZ0), 
      &                  DPc22(I,J,NZ0), 
-     &                  DPc33(I,J,NZ0)
+     &                  DPc33(I,J,NZ0), 
+     &                  DPc00(I,J,NZ0),
+     &                  sqrt(abs(DPcmn2))/VRelaxT(I,J,NZ0), 
+     &                  SiLoc(I,J,NZ0)/VRelaxT0(I,J,NZ0), 
+     &                  sqrt(abs(Pimn2))/PL(I,J,NZ0), 
+     &                  abs(PPI(I,J,NZ0))/PL(I,J,NZ0)
       enddo
       enddo
 
