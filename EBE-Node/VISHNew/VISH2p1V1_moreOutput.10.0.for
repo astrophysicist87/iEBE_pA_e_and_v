@@ -1167,7 +1167,7 @@ CSHEN====END====================================================================
      &        0.180D0, VisBulkNorm)
         endif
         !Print everything to file
-        write(2296, '(12e15.5)')Time, I*DX, J*DY, 
+        write(2296, '(20e15.5)')Time, I*DX, J*DY, 
      &                  Temp(I,J,NZ0)*Hbarc, 
      &                  Ed(I,J,NZ0)*Hbarc, 
      &                  Bd(I,J,NZ0), 
