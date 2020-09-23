@@ -312,8 +312,6 @@ C======output the chemical potential information at freeze out surface.====
       open(2295, File='results/pi_evo.dat', status='REPLACE')
       open(2296, File='results/knudsen_and_reynolds_evo.dat', 
      &     status='REPLACE')
-      open(2297, File='results/knudsen_and_reynolds_evo_check.dat', 
-     &     status='REPLACE')
       open(90,File='results/APi.dat',status='REPLACE')
       open(89,File='results/AScource.dat',status='REPLACE')
       open(88,File='results/AScource2.dat',status='REPLACE')
@@ -393,7 +391,6 @@ CSHEN======set up output file for hydro evolution history===================
       Close(2294)
       Close(2295)
       Close(2296)
-      Close(2297)
       if(outputMovie) then 
          close(3773)
       endif
@@ -4052,59 +4049,6 @@ C--------------------
         DPc33=0D0
       End If
 
-      double precision DPcmn2 = 0.0
-      double precision Pimn2 = 0.0
-      DO J=NYPhy0,NYPhy
-      DO I=NXPhy0,NXPhy
-        Pimn2 = PI00(I,J,NZ0)*PI00(I,J,NZ0)
-     &         + PI11(I,J,NZ0)*PI11(I,J,NZ0)
-     &         + PI22(I,J,NZ0)*PI22(I,J,NZ0)
-     &         + PI33(I,J,NZ0)*PI33(I,J,NZ0)
-     &         - 2.0*PI01(I,J,NZ0)*PI01(I,J,NZ0)
-     &         - 2.0*PI02(I,J,NZ0)*PI02(I,J,NZ0)
-     &         + 2.0*PI12(I,J,NZ0)*PI12(I,J,NZ0)
-        DPcmn2 = DPc00(I,J,NZ0)*DPc00(I,J,NZ0)
-     &         + DPc11(I,J,NZ0)*DPc11(I,J,NZ0)
-     &         + DPc22(I,J,NZ0)*DPc22(I,J,NZ0)
-     &         + DPc33(I,J,NZ0)*DPc33(I,J,NZ0)
-     &         - 2.0*DPc01(I,J,NZ0)*DPc01(I,J,NZ0)
-     &         - 2.0*DPc02(I,J,NZ0)*DPc02(I,J,NZ0)
-     &         + 2.0*DPc12(I,J,NZ0)*DPc12(I,J,NZ0)
-        !Print everything to file
-        write(2296, '(33e15.5)')Time, I*DX, J*DY, 
-     &                  Temp(I,J,NZ0)*Hbarc, 
-     &                  Ed(I,J,NZ0)*Hbarc, 
-     &                  Bd(I,J,NZ0), 
-     &                  Sd(I,J,NZ0), 
-     &                  PL(I,J,NZ0)*Hbarc, 
-     &                  ViscousEtaSLocal, 
-     &                  ViscousZetaSLocal, 
-     &                  1.0/VRelaxT(I,J,NZ0), 
-     &                  1.0/VRelaxT0(I,J,NZ0), 
-     &                  PI00(I,J,NZ0)*Hbarc, 
-     &                  PI01(I,J,NZ0)*Hbarc, 
-     &                  PI02(I,J,NZ0)*Hbarc, 
-     &                  PI11(I,J,NZ0)*Hbarc, 
-     &                  PI12(I,J,NZ0)*Hbarc, 
-     &                  PI22(I,J,NZ0)*Hbarc, 
-     &                  pi33(I,J,NZ0)*Hbarc, 
-     &                  PPI(I,J,NZ0)*Hbarc, 
-     &                  SiLoc(I,J,NZ0), 
-     &                  DPc00(I,J,NZ0), 
-     &                  DPc01(I,J,NZ0), 
-     &                  DPc02(I,J,NZ0), 
-     &                  DPc11(I,J,NZ0), 
-     &                  DPc12(I,J,NZ0), 
-     &                  DPc22(I,J,NZ0), 
-     &                  DPc33(I,J,NZ0), 
-     &                  DPc00(I,J,NZ0),
-     &                  sqrt(abs(DPcmn2))/VRelaxT(I,J,NZ0), 
-     &                  SiLoc(I,J,NZ0)/VRelaxT0(I,J,NZ0), 
-     &                  sqrt(abs(Pimn2))/PL(I,J,NZ0), 
-     &                  abs(PPI(I,J,NZ0))/PL(I,J,NZ0)
-      enddo
-      enddo
-
 
       If (ViscousC>1D-6) Then
 
@@ -4772,6 +4716,8 @@ C            Print *, 'time',time,'Stotal', Stotal,StotalSv,StotalBv
       enddo
       enddo
 
+      double precision DPcmn2 = 0.0
+      double precision Pimn2 = 0.0
       DO J=NYPhy0,NYPhy
       DO I=NXPhy0,NXPhy
         Pimn2 = PI00(I,J,NZ0)*PI00(I,J,NZ0)
@@ -4789,7 +4735,7 @@ C            Print *, 'time',time,'Stotal', Stotal,StotalSv,StotalBv
      &         - 2.0*DPc02(I,J,NZ0)*DPc02(I,J,NZ0)
      &         + 2.0*DPc12(I,J,NZ0)*DPc12(I,J,NZ0)
         !Print everything to file
-        write(2297, '(33e15.5)')Time, I*DX, J*DY, 
+        write(2296, '(33e15.5)')Time, I*DX, J*DY, 
      &                  Temp(I,J,NZ0)*Hbarc, 
      &                  Ed(I,J,NZ0)*Hbarc, 
      &                  Bd(I,J,NZ0), 
