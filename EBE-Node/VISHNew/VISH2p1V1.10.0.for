@@ -4095,8 +4095,24 @@ C--------------------
       DO J=NYPhy0,NYPhy
       DO I=NXPhy0,NXPhy
         !Print everything to file
-        write(2297, '(12e15.5)')Time, I*DX, J*DY, 
+        write(2297, '(30e15.5)')Time, I*DX, J*DY, 
      &                  Temp(I,J,NZ0)*Hbarc, 
+     &                  Ed(I,J,NZ0)*Hbarc, 
+     &                  Bd(I,J,NZ0), 
+     &                  Sd(I,J,NZ0), 
+     &                  PL(I,J,NZ0)*Hbarc, 
+     &                  ViscousEtaSLocal, 
+     &                  ViscousZetaSLocal, 
+     &                  1.0/VRelaxT(I,J,NZ0), 
+     &                  1.0/VRelaxT0(I,J,NZ0), 
+     &                  PI00(I,J,NZ0)*Hbarc, 
+     &                  PI01(I,J,NZ0)*Hbarc, 
+     &                  PI02(I,J,NZ0)*Hbarc, 
+     &                  PI11(I,J,NZ0)*Hbarc, 
+     &                  PI12(I,J,NZ0)*Hbarc, 
+     &                  PI22(I,J,NZ0)*Hbarc, 
+     &                  pi33(I,J,NZ0)*Hbarc, 
+     &                  PPI(I,J,NZ0)*Hbarc
      &                  SiLoc(I,J,NZ0), 
      &                  DPc00(I,J,NZ0), 
      &                  DPc01(I,J,NZ0), 
