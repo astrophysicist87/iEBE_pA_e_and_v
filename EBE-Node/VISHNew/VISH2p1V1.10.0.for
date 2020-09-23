@@ -4735,7 +4735,7 @@ C            Print *, 'time',time,'Stotal', Stotal,StotalSv,StotalBv
      &         - 2.0*DPc02(I,J,NZ0)*DPc02(I,J,NZ0)
      &         + 2.0*DPc12(I,J,NZ0)*DPc12(I,J,NZ0)
         !Print everything to file
-        write(2296, '(33e15.5)')Time, I*DX, J*DY, 
+        write(2296, '(32e15.5)')Time, I*DX, J*DY, 
      &                  Temp(I,J,NZ0)*Hbarc, 
      &                  Ed(I,J,NZ0)*Hbarc, 
      &                  Bd(I,J,NZ0), 
@@ -4761,7 +4761,6 @@ C            Print *, 'time',time,'Stotal', Stotal,StotalSv,StotalBv
      &                  DPc12(I,J,NZ0), 
      &                  DPc22(I,J,NZ0), 
      &                  DPc33(I,J,NZ0), 
-     &                  DPc00(I,J,NZ0),
      &                  sqrt(abs(DPcmn2))/VRelaxT(I,J,NZ0), 
      &                  SiLoc(I,J,NZ0)/VRelaxT0(I,J,NZ0), 
      &                  sqrt(abs(Pimn2))/PL(I,J,NZ0), 
