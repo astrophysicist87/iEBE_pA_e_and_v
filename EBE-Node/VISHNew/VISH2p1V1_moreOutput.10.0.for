@@ -4112,7 +4112,7 @@ C--------------------
      &                  PI12(I,J,NZ0)*Hbarc, 
      &                  PI22(I,J,NZ0)*Hbarc, 
      &                  pi33(I,J,NZ0)*Hbarc, 
-     &                  PPI(I,J,NZ0)*Hbarc
+     &                  PPI(I,J,NZ0)*Hbarc, 
      &                  SiLoc(I,J,NZ0), 
      &                  DPc00(I,J,NZ0), 
      &                  DPc01(I,J,NZ0), 
